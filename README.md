@@ -105,8 +105,8 @@ The services will be available at:
 The backend automatically creates a super admin account on first startup:
 
 **Credentials:**
-- Username: `kaman`
-- Password: `Johnedoms2@`
+- Username: ``
+- Password: ``
 - Role: `admin`
 
 **Important:** Only admin users can upload tracks. Regular users can browse, play music, and manage playlists.
