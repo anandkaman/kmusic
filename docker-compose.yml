@@ -1,0 +1,89 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: music_postgres
+    environment:
+      POSTGRES_DB: musicstream
+      POSTGRES_USER: musicuser
+      POSTGRES_PASSWORD: musicpass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - music_network
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: music_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - music_network
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+
+  minio:
+    image: minio/minio:latest
+    container_name: music_minio
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin123
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+    networks:
+      - music_network
+    restart: unless-stopped
+    command: server /data --console-address ":9001"
+
+  music_backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: music_backend
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: musicuser
+      DB_PASSWORD: musicpass
+      DB_NAME: musicstream
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      MINIO_ENDPOINT: minio:9000
+      MINIO_ACCESS_KEY: minioadmin
+      MINIO_SECRET_KEY: minioadmin123
+      MINIO_USE_SSL: false
+      MINIO_BUCKET: music-files
+      JWT_SECRET: change_this_to_random_secret_key_at_least_32_chars
+      JWT_EXPIRY_HOURS: 168
+      SERVER_PORT: 8080
+      SERVER_HOST: 0.0.0.0
+      MAX_UPLOAD_SIZE: 104857600
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./music_files:/music_files
+    networks:
+      - music_network
+    restart: unless-stopped
+    depends_on:
+      - postgres
+      - redis
+      - minio
+
+volumes:
+  postgres_data:
+  redis_data:
+  minio_data:
+
+networks:
+  music_network:
+    driver: bridge

@@ -1,0 +1,28 @@
+# Git files
+.git
+.gitignore
+
+# Documentation
+*.md
+
+# Environment files
+.env
+
+# Build artifacts
+go.sum
+
+# Data directories
+music_files
+
+# Other projects
+android-app
+
+# Scripts
+*.bat
+Makefile
+
+# IDE files
+.vscode
+.idea
+*.swp
+*.swo

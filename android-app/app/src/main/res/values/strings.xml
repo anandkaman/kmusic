@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">KMusic</string>
+
+    <!-- Login Screen -->
+    <string name="welcome_to_kmusic">Welcome to KMusic</string>
+    <string name="login_subtitle">Stream your favorite music anywhere</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="dont_have_account">Don\'t have an account?</string>
+    <string name="register">Register</string>
+    <string name="server_settings">Server Settings</string>
+
+    <!-- Register Screen -->
+    <string name="create_account">Create Account</string>
+    <string name="register_subtitle">Join the music streaming community</string>
+    <string name="email">Email</string>
+    <string name="display_name">Display Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="already_have_account">Already have an account?</string>
+
+    <!-- Server Config -->
+    <string name="server_address">Server Address</string>
+    <string name="port">Port</string>
+    <string name="use_https">Use HTTPS</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Errors -->
+    <string name="error_username_required">Username is required</string>
+    <string name="error_password_required">Password is required</string>
+    <string name="error_email_required">Email is required</string>
+    <string name="error_display_name_required">Display name is required</string>
+    <string name="error_passwords_dont_match">Passwords don\'t match</string>
+    <string name="error_password_too_short">Password must be at least 6 characters</string>
+    <string name="error_login_failed">Login failed. Please check your credentials</string>
+    <string name="error_network">Network error. Please check your connection</string>
+    <string name="error_server_config">Please configure server settings first</string>
+
+    <!-- Success -->
+    <string name="login_successful">Login successful!</string>
+    <string name="registration_successful">Registration successful!</string>
+
+    <!-- Loading -->
+    <string name="logging_in">Logging in…</string>
+    <string name="registering">Creating account…</string>
+
+    <!-- Player Screen -->
+    <string name="album_art">Album art</string>
+    <string name="play_pause">Play/Pause</string>
+    <string name="previous">Previous track</string>
+    <string name="next">Next track</string>
+    <string name="shuffle">Shuffle</string>
+    <string name="repeat">Repeat</string>
+    <string name="unknown_artist">Unknown Artist</string>
+    <string name="unknown_album">Unknown Album</string>
+    <string name="unknown_track">Unknown Track</string>
+
+    <!-- Playback States -->
+    <string name="buffering">Buffering…</string>
+    <string name="loading_track">Loading track…</string>
+    <string name="error_playback">Playback error</string>
+    <string name="error_load_track">Failed to load track</string>
+
+    <!-- Queue -->
+    <string name="queue">Queue</string>
+    <string name="now_playing">Now Playing</string>
+    <string name="up_next">Up Next</string>
+    <string name="queue_empty">Queue is empty</string>
+
+    <!-- Settings Screen -->
+    <string name="settings">Settings</string>
+    <string name="appearance">Appearance</string>
+    <string name="theme">Theme</string>
+    <string name="theme_system">System Default</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="server">Server</string>
+    <string name="admin">Admin</string>
+    <string name="upload_music">Upload Music</string>
+    <string name="account">Account</string>
+    <string name="logout">Logout</string>
+    <string name="logout_confirmation">Are you sure you want to logout?</string>
+    <string name="logged_out">Logged out successfully</string>
+    <string name="select_file">Select File</string>
+    <string name="no_file_selected">No file selected</string>
+    <string name="uploading">Uploading…</string>
+    <string name="upload_success">Upload successful!</string>
+    <string name="upload_failed">Upload failed</string>
+</resources>
