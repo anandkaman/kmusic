@@ -43,8 +43,5 @@ Thumbs.db
 *.log
 logs/
 
-# Android large files and build artifacts
-android-app/commandlinetools-*.zip
-android-app/.gradle/
-android-app/app/build/
-android-app/project-backup/
+# Android app (not needed in backend repo)
+android-app/
