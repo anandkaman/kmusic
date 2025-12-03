@@ -116,8 +116,8 @@ Login with the super admin:
 curl -X POST http://localhost:8080/api/auth/login \
   -H "Content-Type: application/json" \
   -d '{
-    "username": "kaman",
-    "password": "Johnedoms2@"
+    "username": "",
+    "password": ""
   }'
 ```
 
@@ -127,7 +127,7 @@ The response includes the user's role:
   "token": "eyJhbGciOiJIUzI1NiIs...",
   "user": {
     "id": 1,
-    "username": "kaman",
+    "username": "",
     "role": "admin",
     ...
   }
