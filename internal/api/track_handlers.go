@@ -3,9 +3,7 @@ package api
 import (
 	"context"
 	"database/sql"
-	"encoding/json"
 	"fmt"
-	"io"
 	"net/http"
 	"strconv"
 	"time"
@@ -82,7 +80,7 @@ func (a *API) uploadTrack(w http.ResponseWriter, r *http.Request) {
 	album := metadata.Album()
 	albumArtist := metadata.AlbumArtist()
 	genre := metadata.Genre()
-	year, _ := metadata.Year()
+	year := metadata.Year()
 	trackNum, _ := metadata.Track()
 
 	// Insert track into database
@@ -93,7 +91,7 @@ func (a *API) uploadTrack(w http.ResponseWriter, r *http.Request) {
 		VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
 		RETURNING id
 	`, title, artist, album, albumArtist, genre, year, trackNum,
-		0, header.Size, fileName, metadata.Format().String(), claims.UserID).Scan(&trackID)
+		0, header.Size, fileName, string(metadata.FileType()), claims.UserID).Scan(&trackID)
 
 	if err != nil {
 		// Cleanup uploaded file
