@@ -6,14 +6,14 @@ RUN apk add --no-cache git gcc musl-dev
 
 WORKDIR /app
 
-# Copy go mod files
-COPY go.mod go.sum ./
+# Copy go mod file
+COPY go.mod ./
 
-# Download dependencies
-RUN go mod download
-
-# Copy source code
+# Copy source code (needed for go mod tidy)
 COPY . .
+
+# Generate go.sum and download dependencies
+RUN go mod tidy && go mod download
 
 # Build the application
 RUN CGO_ENABLED=1 GOOS=linux go build -a -installsuffix cgo -ldflags="-w -s" -o musicstream ./cmd/server
